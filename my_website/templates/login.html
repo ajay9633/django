@@ -1,0 +1,78 @@
+{% extends 'header.html' %}
+{% block content %}
+{% load static %}
+
+        <head>
+            <meta charset="UTF-8">
+            <title>Login & Sign Up Form Concept</title>
+            <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
+            <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+            <link rel="stylesheet" href="{% static "app/css/style1.css" %}">
+            <script type="text/javascript" src="{% static "app/js/index.js" %}"></script>
+        </head>
+
+        <body>
+            <div class="cotn_principal">
+                <div class="cont_centrar">
+                    <div class="cont_login" >
+                        <div class="cont_info_log_sign_up">
+                            <div class="col_md_login">
+                                <div class="cont_ba_opcitiy">
+                                    <h2>LOGIN</h2>
+                                    <p>The Users can login here</p>
+                                    <button class="btn_login" onclick="cambiar_login()">LOGIN</button>
+                                </div>
+                            </div>
+                            <div class="col_md_sign_up">
+                                <div class="cont_ba_opcitiy">
+                                    <h2>SIGN UP</h2>
+                                    <p>Please SignUp new users</p>
+                                    <button class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cont_back_info" style="border-radius:25px;">
+                            <div class="cont_img_back_grey">
+                                <img src="{% static "app/img/registration.jpg" %}" alt=""/>
+                            </div>
+                        </div>
+                        <div class="cont_forms" style="border-radius:25px;">
+                            <div class="cont_img_back_">
+                                <img src="{% static "app/img/registration.jpg" %}"/>
+                            </div>
+                            <div class="cont_form_login">
+                                <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                                <h2>LOGIN</h2>
+                                <form action="login" method="POST">
+                                    {% csrf_token %}
+                                    <input type="text" name="username" placeholder="Username"/>
+                                    <input type="password" name="password" placeholder="Password"/>
+                                    <button class="btn_login" onclick="cambiar_login()" type="submit">LOGIN</button>
+                                </form>
+                            </div>
+                            <div class="cont_form_sign_up">
+                                <a href="#" onclick="ocultar_login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+                                <h2>SIGN UP</h2>
+                                <form action="register" method="POST">
+                                    {% csrf_token %}
+                                    <input name="firstname" type="text" placeholder="FirstName"/>
+                                    <input name="lastname" type="text" placeholder="LastName"/>
+                                    <input name="email" type="email" placeholder="Email"/>
+                                    <input name="username" type="text" placeholder="UserName"/>
+                                    <input name="password1" type="password" placeholder="Password"/>
+                                    <input name="password2" type="password" placeholder="Confirm Password"/>
+                                    <button type="submit" class="btn_sign_up" onclick="cambiar_sign_up()">SIGN UP</button>
+                                </form>
+                             </div>
+                        </div>
+                        <div>
+                                {% for message in messages %}
+                                <h3> {{message}} </h3>
+                                {% endfor %}
+                        </div
+                    </div>
+                </div>
+            </div>
+        </body>
+
+{% endblock %}

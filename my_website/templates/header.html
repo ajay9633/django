@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static "app/css/header.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta charset="UTF-8">
+</head>
+<body>
+     <div class="header">
+        <img class="logo" src="{% static 'app/img/logo.png' %}"/>
+        <div class="header-right">
+        <a class="active" href="/">Home</a>
+        </div>
+    </div>
+    {% block content %}
+     {% endblock %}
+     <div class="footer">
+        <p>Posted by: AJ Software Solutions</p>
+        <p>Contact information: <a href="mail:ajaykrishnap688@.com">
+        ajaykrishnap688@.com</a>.</p>
+    </div>
+</body>
+</html>

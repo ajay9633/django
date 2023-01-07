@@ -1,0 +1,22 @@
+{% extends 'header.html' %}
+{% block content %}
+<head>
+    <title>forms</title>
+</head>
+<body>
+<div style="text-align:center; height:80px">
+    <h2><u>Submit your details</u></h2>
+</div>
+<div class="col-sm-4"></div>
+<div class="container col-sm-4">
+    <form method="POST">
+        <div>
+            {{forms.as_p}}
+            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="Submit"/>
+        </div>
+    </form>
+</div>
+<div class="col-sm-4"></div>
+</body>
+{% endblock %}
